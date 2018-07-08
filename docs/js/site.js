@@ -56,12 +56,14 @@ function render_items() {
       <span class="item_row" style="border-color: ${item_info.color};">
         <button data-step="-1" style="background-color: ${item_info.color};">-</button>
         <span class="item">
-          ${item_info.name}: <span class="count" data-price="${item_info.price}">0</span> x ${format_money(item_info.price)}
+          <span class="item_inner">
+            ${item_info.name}: <span class="count" data-price="${item_info.price}">0</span> x ${format_money(item_info.price)}
+          </span>
         </span>
         <button data-step="+1" style="background-color: ${item_info.color};">+</button>
       </span>`
   });
-  document.querySelector('#items').innerHTML = html;
+  document.querySelector('#items').innerHTML += html;
 }
 
 function bind_handlers() {
@@ -105,8 +107,8 @@ function update_total() {
     total_money += count * money;
   });
 
-  document.querySelector('#total .count').innerHTML = total_count;
-  document.querySelector('#total .money').innerHTML = format_money(total_money);
+  document.querySelector('.total_count').innerHTML = total_count;
+  document.querySelector('.total_money').innerHTML = format_money(total_money);
 }
 
 /***********************\

@@ -1,5 +1,5 @@
 body {
-  font-size: 2rem;
+  font-size: 1.5rem;
 }
 
 #header {
@@ -8,17 +8,33 @@ body {
   color: #F03E1F;
 }
 
+#items {
+  display: flex;
+  flex-direction: column;
+  justify-content: stretch;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  flex-grow: 1;
+  padding: 2px;
+  left: 0;
+  right: 0;
+}
+
 .item_row {
   border-radius: 5px;
   border: 6px solid;
   display: flex;
+  flex-grow: 1;
   justify-content: space-between;
   padding: 5px;
+  margin: 2px;
 }
 
 .item {
-  display: inline-block;
-  line-height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 button {
@@ -26,6 +42,5 @@ button {
   border: none;
   cursor: pointer;
   font-size: inherit;
-  height: 50px;
-  width: 50px;
+  width: 70px;
 }
