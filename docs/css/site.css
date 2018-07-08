@@ -1,3 +1,30 @@
 h1 {
-  color: red;
+  color: #F03E1F;
+}
+
+#main {
+  font-size: 2rem;
+}
+
+.item_row {
+  border-radius: 5px;
+  border: 6px solid;
+  display: inline-block;
+  padding: 5px;
+  width: 100%;
+  max-width: 400px;
+}
+
+.item {
+  display: inline-block;
+  text-align: center;
+}
+
+button {
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  font-size: inherit;
+  height: 50px;
+  width: 50px;
 }
