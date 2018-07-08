@@ -44,8 +44,30 @@ const SETTINGS = {
 \***********************/
 
 function main() {
-  console.log('Hello, Sushi Platers!');
-  render();
+  render_items();
+  bind_handlers();
+  update_total();
+}
+
+function render_items() {
+  let html = '';
+  SETTINGS.items.forEach(function(item_info) {
+    html += `
+      <span class="item_row" style="border-color: ${item_info.color};">
+        <button data-step="-1" style="background-color: ${item_info.color};">-</button>
+        <span class="item">
+          ${item_info.name}: <span class="count" data-price="${item_info.price}">0</span> x ${format_money(item_info.price)}
+        </span>
+        <button data-step="+1" style="background-color: ${item_info.color};">+</button>
+      </span>`
+  });
+  document.querySelector('#items').innerHTML = html;
+}
+
+function bind_handlers() {
+  document.querySelectorAll('button').forEach(function(button) {
+    button.onclick = button_click;
+  });
 }
 
 /***********************\
@@ -57,30 +79,34 @@ function format_money(money) {
 }
 
 /***********************\
-*  Render functions
+*  Interaction functions
 \***********************/
 
-function render() {
-  render_items();
-  render_total();
+function button_click(event) {
+  let target = event.target;
+  let count_element = target.parentElement.querySelector('.count');
+
+  let current_count = parseInt(count_element.innerHTML);
+  let step = parseInt(target.dataset.step);
+  let new_value = Math.max(0, current_count + step);
+  count_element.innerHTML = new_value;
+
+  update_total();
 }
 
-function render_items() {
-  let html = '';
-  SETTINGS.items.forEach(function(item_info) {
-    html += `
-      <span class="item_row" data-color="${item_info.color}" style="border-color: ${item_info.color};">
-        <button data-value="-1" style="background-color: ${item_info.color};">-</button>
-        <span class="item">
-          ${item_info.name}: <span class="count">0</span> x ${format_money(item_info.price)}
-        </span>
-        <button data-value="+1" style="background-color: ${item_info.color};">+</button>
-      </span>`
+function update_total() {
+  let total_count = 0;
+  let total_money = 0.0;
+  document.querySelectorAll('#items .count').forEach(function(count_element) {
+    let count = parseInt(count_element.innerHTML);
+    let money = parseFloat(count_element.dataset.price);
+
+    total_count += count;
+    total_money += count * money;
   });
-  document.querySelector('#items').innerHTML = html;
-}
 
-function render_total() {
+  document.querySelector('#total .count').innerHTML = total_count;
+  document.querySelector('#total .money').innerHTML = format_money(total_money);
 }
 
 /***********************\

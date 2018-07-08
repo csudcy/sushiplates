@@ -1,23 +1,24 @@
-h1 {
-  color: #F03E1F;
+body {
+  font-size: 2rem;
 }
 
-#main {
-  font-size: 2rem;
+#header {
+  display: flex;
+  justify-content: space-between;
+  color: #F03E1F;
 }
 
 .item_row {
   border-radius: 5px;
   border: 6px solid;
-  display: inline-block;
+  display: flex;
+  justify-content: space-between;
   padding: 5px;
-  width: 100%;
-  max-width: 400px;
 }
 
 .item {
   display: inline-block;
-  text-align: center;
+  line-height: 50px;
 }
 
 button {
