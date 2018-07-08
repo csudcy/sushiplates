@@ -6,35 +6,35 @@ const SETTINGS = {
     {
       name: 'Green',
       color: '#bfcd46',
-      price: 2.1
+      price: 2.3
     }, {
       name: 'Blue',
       color: '#29a9e5',
-      price: 2.8
+      price: 2.9
     }, {
       name: 'Purple',
       color: '#5a368d',
-      price: 3.7
+      price: 3.8
     }, {
       name: 'Orange',
       color: '#e66222',
-      price: 4.2
+      price: 4.3
     }, {
       name: 'Pink',
       color: '#d92087',
-      price: 4.6
+      price: 4.8
     }, {
       name: 'Grey',
       color: '#a0b4b9',
-      price: 5.2
+      price: 5.4
     }, {
       name: 'Yellow',
       color: '#fdd93c',
-      price: 6.0
+      price: 6.3
     }, {
       name: 'Diet Coke',
       color: '#eeeeee',
-      price: 2.6
+      price: 2.65
     }
   ]
 };
